@@ -26,7 +26,7 @@ export default function RootLayout({ children }) {
     >
       <body className="overflow-x-hidden antialiased">
         <main>
-          {process.env.NODE_ENV === "development" && (
+          {/* {process.env.NODE_ENV === "development" && (
             <div
               style={{
                 background: "#5163ba",
@@ -50,7 +50,7 @@ export default function RootLayout({ children }) {
                 . Remove this bar in <code>app/layout.js</code>.
               </p>
             </div>
-          )}
+          )} */}
           {children}
           <PrismicPreview repositoryName={repositoryName} />
         </main>
