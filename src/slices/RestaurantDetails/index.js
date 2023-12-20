@@ -5,7 +5,6 @@
  */
 
 import { Bounded } from "@/components/Bounded";
-import { PrismicRichText } from "@/components/PrismicRichText";
 
 const RestaurantDetails = ({ slice }) => {
   console.log({ slice });
@@ -35,7 +34,8 @@ const RestaurantDetails = ({ slice }) => {
             </a>
           </h5>
         )}
-        {slice?.primary?.menu?.src && (
+
+        {slice?.primary?.menu?.url && (
           <h5 className="text-sm my-3 ">
             <span className="font-bold">Menu:</span>{" "}
             <a
@@ -47,6 +47,7 @@ const RestaurantDetails = ({ slice }) => {
             </a>
           </h5>
         )}
+
         {slice?.primary?.phone_number && (
           <h5 className="text-sm my-3">
             <span className="font-bold">Phone Number:</span>{" "}
