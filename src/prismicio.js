@@ -34,13 +34,14 @@ export const createClient = (config = {}) => {
   const client = prismic.createClient(repositoryName, {
     routes,
     fetchOptions:
-      process.env.NODE_ENV === "production"
-        ? {
-            next: { tags: ["prismic"] },
-            cache: "force-cache",
-            revalidate: 2 * 60 * 60 * 1000, // revalidate every 2 hours
-          }
-        : { next: { revalidate: 5 } },
+      // process.env.NODE_ENV === "production"
+      //   ? {
+      //       next: { tags: ["prismic"] },
+      //       cache: "force-cache",
+      //       revalidate: 2 * 60 * 60 * 1000, // revalidate every 2 hours
+      //     }
+      //   :
+      { next: { revalidate: 5 } },
     ...config,
   });
 
