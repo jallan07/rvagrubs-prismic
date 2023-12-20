@@ -18,7 +18,7 @@ const dateFormatter = new Intl.DateTimeFormat("en-US", {
 
 function LatestArticle({ article }) {
   const date = prismic.asDate(
-    article.data.publishDate || article.first_publication_date,
+    article.data.publishDate || article.first_publication_date
   );
 
   return (
@@ -44,7 +44,7 @@ export async function generateMetadata({ params }) {
 
   return {
     title: `${prismic.asText(article.data.title)} | ${prismic.asText(
-      settings.data.name,
+      settings.data.name
     )}`,
     description: article.data.meta_description,
     openGraph: {
@@ -75,7 +75,7 @@ export default async function Page({ params }) {
   const settings = await client.getSingle("settings");
 
   const date = prismic.asDate(
-    article.data.publishDate || article.first_publication_date,
+    article.data.publishDate || article.first_publication_date
   );
 
   return (
