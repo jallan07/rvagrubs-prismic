@@ -61,7 +61,8 @@ const RestaurantDetails = ({ slice }) => {
         )}
         {slice?.primary?.score && (
           <h5 className="text-sm my-3">
-            <span className="font-bold">Score:</span> {slice.primary.score}
+            <span className="font-bold">Overall Score:</span>{" "}
+            {slice.primary.score}
           </h5>
         )}
       </div>
