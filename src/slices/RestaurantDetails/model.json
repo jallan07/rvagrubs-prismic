@@ -38,12 +38,6 @@
             "placeholder": ""
           }
         },
-        "google_maps_url": {
-          "type": "GeoPoint",
-          "config": {
-            "label": "google maps url"
-          }
-        },
         "score": {
           "type": "Number",
           "config": {

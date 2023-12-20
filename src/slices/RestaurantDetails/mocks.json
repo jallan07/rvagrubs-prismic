@@ -15,13 +15,6 @@
 				"value": "78",
 				"type": "Number"
 			},
-			"google_maps_url": {
-				"position": {
-					"lat": 48.8606111,
-					"lng": 2.337644
-				},
-				"__TYPE__": "GeoPointContent"
-			},
 			"phone_number": {
 				"__TYPE__": "FieldContent",
 				"value": "brain",

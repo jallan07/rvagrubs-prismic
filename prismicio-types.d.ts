@@ -582,16 +582,6 @@ export interface RestaurantDetailsSliceDefaultPrimary {
   address: prismic.KeyTextField;
 
   /**
-   * google maps url field in *RestaurantDetails → Primary*
-   *
-   * - **Field Type**: GeoPoint
-   * - **Placeholder**: *None*
-   * - **API ID Path**: restaurant_details.primary.google_maps_url
-   * - **Documentation**: https://prismic.io/docs/field#geopoint
-   */
-  google_maps_url: prismic.GeoPointField;
-
-  /**
    * score field in *RestaurantDetails → Primary*
    *
    * - **Field Type**: Number
