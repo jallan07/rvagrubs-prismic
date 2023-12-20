@@ -6,5 +6,6 @@ export const components = {
   contact_form: dynamic(() => import("./ContactForm")),
   image: dynamic(() => import("./Image")),
   quote: dynamic(() => import("./Quote")),
+  restaurant_details: dynamic(() => import("./RestaurantDetails")),
   text: dynamic(() => import("./Text")),
 };

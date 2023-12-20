@@ -1,0 +1,81 @@
+{
+  "id": "restaurant_details",
+  "type": "SharedSlice",
+  "name": "RestaurantDetails",
+  "description": "RestaurantDetails",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "primary_category": {
+          "type": "Select",
+          "config": {
+            "label": "Primary Category",
+            "placeholder": "",
+            "options": [
+              "Mexican",
+              "Italian",
+              "Japanese",
+              "Indian",
+              "French",
+              "Chinese",
+              "Thai",
+              "Greek"
+            ]
+          }
+        },
+        "address": {
+          "type": "Text",
+          "config": {
+            "label": "address",
+            "placeholder": ""
+          }
+        },
+        "google_maps_url": {
+          "type": "GeoPoint",
+          "config": {
+            "label": "google maps url"
+          }
+        },
+        "score": {
+          "type": "Number",
+          "config": {
+            "label": "score",
+            "placeholder": ""
+          }
+        },
+        "website": {
+          "type": "Link",
+          "config": {
+            "label": "website",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "select": null
+          }
+        },
+        "phone_number": {
+          "type": "Text",
+          "config": {
+            "label": "phone number",
+            "placeholder": ""
+          }
+        },
+        "menu": {
+          "type": "Link",
+          "config": {
+            "label": "menu",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "select": null
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"website": {
+				"__TYPE__": "LinkContent",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "http://twitter.com"
+				}
+			},
+			"score": {
+				"__TYPE__": "FieldContent",
+				"value": "78",
+				"type": "Number"
+			},
+			"google_maps_url": {
+				"position": {
+					"lat": 48.8606111,
+					"lng": 2.337644
+				},
+				"__TYPE__": "GeoPointContent"
+			},
+			"phone_number": {
+				"__TYPE__": "FieldContent",
+				"value": "brain",
+				"type": "Text"
+			},
+			"primary_category": {
+				"__TYPE__": "FieldContent",
+				"value": "Chinese",
+				"type": "Select"
+			},
+			"menu": {
+				"__TYPE__": "LinkContent",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "https://prismic.io"
+				}
+			},
+			"address": {
+				"__TYPE__": "FieldContent",
+				"value": "college",
+				"type": "Text"
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": []
+			}
+		]
+	}
+]

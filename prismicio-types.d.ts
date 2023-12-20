@@ -5,6 +5,7 @@ import type * as prismic from "@prismicio/client";
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
 type ArticleDocumentDataSlicesSlice =
+  | RestaurantDetailsSlice
   | ImageSlice
   | QuoteSlice
   | TextSlice
@@ -505,6 +506,120 @@ type QuoteSliceVariation = QuoteSliceDefault;
 export type QuoteSlice = prismic.SharedSlice<"quote", QuoteSliceVariation>;
 
 /**
+ * Primary content in *RestaurantDetails → Primary*
+ */
+export interface RestaurantDetailsSliceDefaultPrimary {
+  /**
+   * Primary Category field in *RestaurantDetails → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **API ID Path**: restaurant_details.primary.primary_category
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  primary_category: prismic.SelectField<
+    | "Mexican"
+    | "Italian"
+    | "Japanese"
+    | "Indian"
+    | "French"
+    | "Chinese"
+    | "Thai"
+    | "Greek"
+  >;
+
+  /**
+   * address field in *RestaurantDetails → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: restaurant_details.primary.address
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  address: prismic.KeyTextField;
+
+  /**
+   * google maps url field in *RestaurantDetails → Primary*
+   *
+   * - **Field Type**: GeoPoint
+   * - **Placeholder**: *None*
+   * - **API ID Path**: restaurant_details.primary.google_maps_url
+   * - **Documentation**: https://prismic.io/docs/field#geopoint
+   */
+  google_maps_url: prismic.GeoPointField;
+
+  /**
+   * score field in *RestaurantDetails → Primary*
+   *
+   * - **Field Type**: Number
+   * - **Placeholder**: *None*
+   * - **API ID Path**: restaurant_details.primary.score
+   * - **Documentation**: https://prismic.io/docs/field#number
+   */
+  score: prismic.NumberField;
+
+  /**
+   * website field in *RestaurantDetails → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: restaurant_details.primary.website
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  website: prismic.LinkField;
+
+  /**
+   * phone number field in *RestaurantDetails → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: restaurant_details.primary.phone_number
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  phone_number: prismic.KeyTextField;
+
+  /**
+   * menu field in *RestaurantDetails → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: restaurant_details.primary.menu
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  menu: prismic.LinkField;
+}
+
+/**
+ * Default variation for RestaurantDetails Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type RestaurantDetailsSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<RestaurantDetailsSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *RestaurantDetails*
+ */
+type RestaurantDetailsSliceVariation = RestaurantDetailsSliceDefault;
+
+/**
+ * RestaurantDetails Shared Slice
+ *
+ * - **API ID**: `restaurant_details`
+ * - **Description**: RestaurantDetails
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type RestaurantDetailsSlice = prismic.SharedSlice<
+  "restaurant_details",
+  RestaurantDetailsSliceVariation
+>;
+
+/**
  * Primary content in *Text → Primary*
  */
 export interface TextSliceDefaultPrimary {
@@ -581,6 +696,10 @@ declare module "@prismicio/client" {
       QuoteSliceDefaultPrimary,
       QuoteSliceVariation,
       QuoteSliceDefault,
+      RestaurantDetailsSlice,
+      RestaurantDetailsSliceDefaultPrimary,
+      RestaurantDetailsSliceVariation,
+      RestaurantDetailsSliceDefault,
       TextSlice,
       TextSliceDefaultPrimary,
       TextSliceVariation,
