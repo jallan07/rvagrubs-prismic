@@ -35,7 +35,7 @@ const RestaurantDetails = ({ slice }) => {
             </a>
           </h5>
         )}
-        {slice?.primary?.menu && (
+        {slice?.primary?.menu?.src && (
           <h5 className="text-sm my-3 ">
             <span className="font-bold">Menu:</span>{" "}
             <a

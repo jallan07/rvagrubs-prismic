@@ -526,6 +526,7 @@ export interface RestaurantDetailsSliceDefaultPrimary {
     | "Chinese"
     | "Thai"
     | "Greek"
+    | "Korean"
   >;
 
   /**
