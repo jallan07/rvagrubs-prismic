@@ -4,6 +4,7 @@ import { createClient } from "@/prismicio";
 import { Layout } from "@/components/Layout";
 import { Bounded } from "@/components/Bounded";
 import { Article } from "@/components/Article";
+import { Heading } from "@/components/Heading";
 
 export async function generateMetadata() {
   const client = createClient();
@@ -16,6 +17,14 @@ export async function generateMetadata() {
 
 export default async function Index() {
   const client = createClient();
+
+  const features = await client.getByTag("Featured", {
+    orderings: [
+      { field: "my.article.publishDate", direction: "desc" },
+      { field: "document.first_publication_date", direction: "desc" },
+    ],
+  });
+  console.log("🚀 ~ file: page.js:21 ~ Index ~ features:", features.results);
 
   const articles = await client.getAllByType("article", {
     orderings: [
@@ -34,6 +43,20 @@ export default async function Index() {
     >
       <Bounded size="widest">
         <ul className="grid grid-cols-1 gap-16">
+          <Heading as="h2" className="text-center">
+            Featured Articles
+          </Heading>
+          <hr className="w-1/5 mx-auto" />
+          {features &&
+            features.results.map((feature) => (
+              <Article key={feature.id} article={feature} />
+            ))}
+
+          <hr />
+          <Heading as="h2" className="text-center">
+            All Articles
+          </Heading>
+          <hr className="w-1/5 mx-auto" />
           {articles.map((article) => (
             <Article key={article.id} article={article} />
           ))}
