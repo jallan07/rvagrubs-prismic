@@ -570,6 +570,7 @@ export interface RestaurantDetailsSliceDefaultPrimary {
     | "Korean"
     | "Fusion"
     | "Breakfast"
+    | "Burgers"
   >;
 
   /**
@@ -699,7 +700,7 @@ declare module "@prismicio/client" {
   interface CreateClient {
     (
       repositoryNameOrEndpoint: string,
-      options?: prismic.ClientConfig
+      options?: prismic.ClientConfig,
     ): prismic.Client<AllDocumentTypes>;
   }
 

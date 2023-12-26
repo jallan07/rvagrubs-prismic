@@ -105,7 +105,10 @@ export default async function Page({ params }) {
             {tags &&
               tags.length > 0 &&
               tags.map((tag) => (
-                <a href="#" key={tag}>{`#${tag.toLowerCase()} `}</a>
+                <a
+                  href={`/tags/${encodeURIComponent(tag)}`}
+                  key={tag}
+                >{`#${tag.toLowerCase()} `}</a>
               ))}
           </p>
         </Bounded>
