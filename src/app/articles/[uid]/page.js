@@ -78,6 +78,8 @@ export default async function Page({ params }) {
     article.data.publishDate || article.first_publication_date
   );
 
+  const { tags } = article;
+
   return (
     <Layout
       navigation={navigation}
@@ -97,6 +99,12 @@ export default async function Page({ params }) {
           </h1>
           <p className="font-serif italic tracking-tighter text-slate-500">
             {dateFormatter.format(date)}
+          </p>
+
+          <p className="italic text-sm mt-3 text-slate-500">
+            {tags &&
+              tags.length > 0 &&
+              tags.map((tag) => <a href="#">{`#${tag.toLowerCase()} `}</a>)}
           </p>
         </Bounded>
         <SliceZone slices={article.data.slices} components={components} />
