@@ -104,7 +104,9 @@ export default async function Page({ params }) {
           <p className="italic text-sm mt-3 text-slate-500">
             {tags &&
               tags.length > 0 &&
-              tags.map((tag) => <a href="#">{`#${tag.toLowerCase()} `}</a>)}
+              tags.map((tag) => (
+                <a href="#" key={tag}>{`#${tag.toLowerCase()} `}</a>
+              ))}
           </p>
         </Bounded>
         <SliceZone slices={article.data.slices} components={components} />
