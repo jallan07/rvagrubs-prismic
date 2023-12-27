@@ -1,0 +1,365 @@
+{
+  "id": "ZYr04xIAAFYBm_HI",
+  "uid": "slay-burgers",
+  "url": "/articles/slay-burgers",
+  "type": "article",
+  "href": "https://rvagrubs-prsimic.cdn.prismic.io/api/v2/documents/search?ref=ZYr_ihIAACAAnCGj&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22ZYr04xIAAFYBm_HI%22%29+%5D%5D",
+  "tags": ["burgers", "american", "brookland park"],
+  "first_publication_date": "2023-12-26T15:55:17+0000",
+  "last_publication_date": "2023-12-26T16:26:15+0000",
+  "slugs": [],
+  "linked_documents": [],
+  "lang": "en-us",
+  "alternate_languages": [],
+  "data": {
+    "title": [
+      {
+        "type": "heading1",
+        "text": "slay burgers",
+        "spans": [],
+        "direction": "ltr"
+      }
+    ],
+    "publishDate": "2023-09-27",
+    "featuredImage": {
+      "dimensions": {
+        "width": 2000,
+        "height": 1500
+      },
+      "alt": null,
+      "copyright": null,
+      "url": "https://images.prismic.io/rvagrubs-prsimic/658af649531ac2845a26ef78_slay-burgers-1.jpeg?auto=format%2Ccompress&rect=0%2C329%2C1080%2C810&w=2000&h=1500",
+      "id": "ZYr2SVMawoRaJu94",
+      "edit": {
+        "x": 0,
+        "y": 329,
+        "zoom": 1.0000000000000002,
+        "background": "transparent"
+      }
+    },
+    "slices": [
+      {
+        "variation": "extraWideSmallHeight",
+        "version": "sktwi1xtmkfgx8626",
+        "items": [],
+        "primary": {
+          "image": {
+            "dimensions": {
+              "width": 1080,
+              "height": 600
+            },
+            "alt": null,
+            "copyright": null,
+            "url": "https://images.prismic.io/rvagrubs-prsimic/658af64b531ac2845a26ef7a_slay-burgers-3.jpeg?auto=format%2Ccompress&rect=0%2C332%2C1080%2C600&w=1080&h=600",
+            "id": "ZYr2S1MawoRaJu96",
+            "edit": {
+              "x": 0,
+              "y": 332,
+              "zoom": 1.0000000000000002,
+              "background": "transparent"
+            }
+          },
+          "caption": []
+        },
+        "id": "image$c2de3fda-d140-4c3d-b289-8adf4253e933",
+        "slice_type": "image",
+        "slice_label": null
+      },
+      {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
+        "primary": {
+          "primary_category": "Burgers",
+          "address": "22 West Brookland Park Boulevard, Richmond, Virginia 23222",
+          "score": 8.1,
+          "website": {
+            "link_type": "Web",
+            "url": "https://slayburger.com/",
+            "target": "_blank"
+          },
+          "phone_number": "(804) 716-9310",
+          "menu": {
+            "link_type": "Any"
+          }
+        },
+        "id": "restaurant_details$d8e91bc3-889a-43c8-983a-b9f9d378296a",
+        "slice_type": "restaurant_details",
+        "slice_label": null
+      },
+      {
+        "variation": "default",
+        "version": "sktwi1xtmkfgx8626",
+        "items": [{}],
+        "primary": {
+          "text": [
+            {
+              "type": "paragraph",
+              "text": "We ate our feelings at @theslayburgers over the rainy, gloomy (did we mention, rainy?) weekend, and man did it SLAY! It’s no secret that I’m a sucker for smash burgers, and these were absolutely stacked.\\n\\nI got the big ounce (pic 1), which was a massive stack of two juicy smash patties, American cheese, bacon, tangy bbq sauce, and a thicccc onion ring. Two very messy but verrry satisfied thumbs up 👍👍!\\n\\nSophie got the slay burger—a single smashed burger with lettuce, pickles, onions, and their signature slay sauce. A simple classic!\\n\\nOur friends got the philly cheesesteak fries, which we obviously had to try. And I kid you not—that box probably weighed about 4 pounds. Very indulgent and delicious, and very much shareable.\\n\\nWe also tried:\\n- Fries — GOOD. A very acceptable pairing with the burgs.\\n- Onion rings — BETTER. Very crispy even after a long drive home.\\n- Cheese curds — BEST. We couldn’t stop eating these the whole drive home. Definitely order these.\\n\\n#rva is burger city usa, and Slay Burgers is another incredible reason why! Go check them out!",
+              "spans": [
+                {
+                  "start": 23,
+                  "end": 38,
+                  "type": "hyperlink",
+                  "data": {
+                    "link_type": "Web",
+                    "url": "https://www.instagram.com/theslayburgers/",
+                    "target": "_blank"
+                  }
+                },
+                {
+                  "start": 973,
+                  "end": 977,
+                  "type": "hyperlink",
+                  "data": {
+                    "link_type": "Web",
+                    "url": "https://www.instagram.com/explore/tags/rva/",
+                    "target": "_blank"
+                  }
+                }
+              ],
+              "direction": "ltr"
+            }
+          ]
+        },
+        "id": "text$33a5338f-df70-4216-a9dd-f832e3e0c037",
+        "slice_type": "text",
+        "slice_label": null
+      },
+      {
+        "variation": "default",
+        "version": "sktwi1xtmkfgx8626",
+        "items": [],
+        "primary": {
+          "image": {
+            "dimensions": {
+              "width": 1080,
+              "height": 1350
+            },
+            "alt": null,
+            "copyright": null,
+            "url": "https://images.prismic.io/rvagrubs-prsimic/658af649531ac2845a26ef78_slay-burgers-1.jpeg?auto=format,compress",
+            "id": "ZYr2SVMawoRaJu94",
+            "edit": {
+              "x": 0,
+              "y": 0,
+              "zoom": 1,
+              "background": "transparent"
+            }
+          },
+          "caption": []
+        },
+        "id": "image$235e03b5-99d6-4905-b5e0-6f8fef113152",
+        "slice_type": "image",
+        "slice_label": null
+      },
+      {
+        "variation": "default",
+        "version": "sktwi1xtmkfgx8626",
+        "items": [{}],
+        "primary": {
+          "image": {
+            "dimensions": {
+              "width": 1080,
+              "height": 1350
+            },
+            "alt": null,
+            "copyright": null,
+            "url": "https://images.prismic.io/rvagrubs-prsimic/658af64a531ac2845a26ef79_slay-burgers-2.jpeg?auto=format,compress",
+            "id": "ZYr2SlMawoRaJu95",
+            "edit": {
+              "x": 0,
+              "y": 0,
+              "zoom": 1,
+              "background": "transparent"
+            }
+          },
+          "caption": []
+        },
+        "id": "image$cfccdfa1-a8e1-4d5f-aa19-3f6affa2392f",
+        "slice_type": "image",
+        "slice_label": null
+      },
+      {
+        "variation": "default",
+        "version": "sktwi1xtmkfgx8626",
+        "items": [],
+        "primary": {
+          "image": {
+            "dimensions": {
+              "width": 1080,
+              "height": 1350
+            },
+            "alt": null,
+            "copyright": null,
+            "url": "https://images.prismic.io/rvagrubs-prsimic/658af64b531ac2845a26ef7a_slay-burgers-3.jpeg?auto=format,compress",
+            "id": "ZYr2S1MawoRaJu96",
+            "edit": {
+              "x": 0,
+              "y": 0,
+              "zoom": 1,
+              "background": "transparent"
+            }
+          },
+          "caption": []
+        },
+        "id": "image$bfceb3c6-7c47-4646-9f30-1976bda81fc6",
+        "slice_type": "image",
+        "slice_label": null
+      },
+      {
+        "variation": "default",
+        "version": "sktwi1xtmkfgx8626",
+        "items": [],
+        "primary": {
+          "image": {
+            "dimensions": {
+              "width": 1080,
+              "height": 1350
+            },
+            "alt": null,
+            "copyright": null,
+            "url": "https://images.prismic.io/rvagrubs-prsimic/658af64c531ac2845a26ef7b_slay-burgers-4.jpeg?auto=format,compress",
+            "id": "ZYr2TFMawoRaJu97",
+            "edit": {
+              "x": 0,
+              "y": 0,
+              "zoom": 1,
+              "background": "transparent"
+            }
+          },
+          "caption": []
+        },
+        "id": "image$341eebb5-a3e6-4a27-89b3-b1a3fe004e57",
+        "slice_type": "image",
+        "slice_label": null
+      },
+      {
+        "variation": "default",
+        "version": "sktwi1xtmkfgx8626",
+        "items": [],
+        "primary": {
+          "image": {
+            "dimensions": {
+              "width": 1080,
+              "height": 1350
+            },
+            "alt": null,
+            "copyright": null,
+            "url": "https://images.prismic.io/rvagrubs-prsimic/658af64d531ac2845a26ef7c_slay-burgers-5.jpeg?auto=format,compress",
+            "id": "ZYr2TVMawoRaJu98",
+            "edit": {
+              "x": 0,
+              "y": 0,
+              "zoom": 1,
+              "background": "transparent"
+            }
+          },
+          "caption": []
+        },
+        "id": "image$412b1092-62dd-46dd-929b-b84ec32839b2",
+        "slice_type": "image",
+        "slice_label": null
+      },
+      {
+        "variation": "default",
+        "version": "sktwi1xtmkfgx8626",
+        "items": [],
+        "primary": {
+          "image": {
+            "dimensions": {
+              "width": 1080,
+              "height": 1350
+            },
+            "alt": null,
+            "copyright": null,
+            "url": "https://images.prismic.io/rvagrubs-prsimic/658af64e531ac2845a26ef7d_slay-burgers-6.jpeg?auto=format,compress",
+            "id": "ZYr2TlMawoRaJu99",
+            "edit": {
+              "x": 0,
+              "y": 0,
+              "zoom": 1,
+              "background": "transparent"
+            }
+          },
+          "caption": []
+        },
+        "id": "image$4a0df969-9b68-43d4-b781-fa18ce1e0182",
+        "slice_type": "image",
+        "slice_label": null
+      },
+      {
+        "variation": "default",
+        "version": "sktwi1xtmkfgx8626",
+        "items": [],
+        "primary": {
+          "image": {
+            "dimensions": {
+              "width": 1080,
+              "height": 1350
+            },
+            "alt": null,
+            "copyright": null,
+            "url": "https://images.prismic.io/rvagrubs-prsimic/658af64f531ac2845a26ef7e_slay-burgers-7.jpeg?auto=format,compress",
+            "id": "ZYr2T1MawoRaJu9-",
+            "edit": {
+              "x": 0,
+              "y": 0,
+              "zoom": 1,
+              "background": "transparent"
+            }
+          },
+          "caption": []
+        },
+        "id": "image$96a4fd93-3435-4b13-a1ec-4ac14507ae87",
+        "slice_type": "image",
+        "slice_label": null
+      },
+      {
+        "variation": "default",
+        "version": "sktwi1xtmkfgx8626",
+        "items": [],
+        "primary": {
+          "image": {
+            "dimensions": {
+              "width": 1080,
+              "height": 1350
+            },
+            "alt": null,
+            "copyright": null,
+            "url": "https://images.prismic.io/rvagrubs-prsimic/658af650531ac2845a26ef7f_slay-burgers-8.jpeg?auto=format,compress",
+            "id": "ZYr2UFMawoRaJu9_",
+            "edit": {
+              "x": 0,
+              "y": 0,
+              "zoom": 1,
+              "background": "transparent"
+            }
+          },
+          "caption": []
+        },
+        "id": "image$62e3f67c-3c5c-4e46-a7ce-b8604924b0e7",
+        "slice_type": "image",
+        "slice_label": null
+      }
+    ],
+    "meta_title": "lolita's",
+    "meta_description": "A post about perilous yoga",
+    "meta_image": {
+      "dimensions": {
+        "width": 2400,
+        "height": 1260
+      },
+      "alt": null,
+      "copyright": null,
+      "url": "https://images.prismic.io/rvagrubs-prsimic/65820639531ac2845a26c9d3_lolitas-3.jpeg?auto=format%2Ccompress&rect=0%2C243%2C1080%2C567&w=2400&h=1260",
+      "id": "ZYIGOVMawoRaJsnT",
+      "edit": {
+        "x": 0,
+        "y": 243,
+        "zoom": 1.0000000000000002,
+        "background": "transparent"
+      }
+    }
+  }
+}

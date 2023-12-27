@@ -2,11 +2,12 @@ import { PrismicText } from "@prismicio/react";
 import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
 import * as prismic from "@prismicio/client";
 
-import { getExcerpt } from "@/lib/getExcerpt";
-import { findFirstImage } from "@/lib/findFirstImage";
-import { dateFormatter } from "@/lib/dateFormatter";
+import { getExcerpt } from "../lib/getExcerpt";
+import { findFirstImage } from "../lib/findFirstImage";
+import { dateFormatter } from "../lib/dateFormatter";
 
 import { Heading } from "./Heading";
+import { ArticleTestIds } from "../tests/testIds";
 
 export function Article({ article }) {
   const featuredImage =
@@ -14,7 +15,7 @@ export function Article({ article }) {
       article.data.featuredImage) ||
     findFirstImage(article.data.slices);
   const date = prismic.asDate(
-    article.data.publishDate || article.first_publication_date,
+    article.data.publishDate || article.first_publication_date
   );
   const excerpt = getExcerpt(article.data.slices);
 
@@ -24,12 +25,14 @@ export function Article({ article }) {
         <div className="aspect-h-3 aspect-w-4 relative bg-gray-100">
           {prismic.isFilled.image(featuredImage) && (
             <PrismicNextImage
+              data-testid={ArticleTestIds.featuredImage}
               field={featuredImage}
               fill={true}
               className="object-cover"
             />
           )}
         </div>
+        {console.log({ article: JSON.stringify(article) })}
       </PrismicNextLink>
       <div className="grid grid-cols-1 gap-3 md:col-span-2">
         <Heading as="h2">
