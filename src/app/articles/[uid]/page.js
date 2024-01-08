@@ -89,7 +89,7 @@ export default async function Page({ params }) {
     >
       <Bounded>
         <Link href="/" className="font-semibold tracking-tight text-slate-400">
-          &larr; Back to articles
+          &larr; Back to Reviews
         </Link>
       </Bounded>
       <article>

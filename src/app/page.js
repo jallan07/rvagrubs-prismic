@@ -43,7 +43,7 @@ export default async function Index() {
       <Bounded size="widest">
         <ul className="grid grid-cols-1 gap-16">
           <Heading as="h2" className="text-center">
-            Featured Articles
+            Featured Reviews
           </Heading>
           <hr className="w-1/5 mx-auto" />
           {features &&
@@ -53,7 +53,7 @@ export default async function Index() {
 
           <hr />
           <Heading as="h2" className="text-center">
-            All Articles
+            All Reviews
           </Heading>
           <hr className="w-1/5 mx-auto" />
           {articles.map((article) => (
