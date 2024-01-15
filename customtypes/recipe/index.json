@@ -44,6 +44,9 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "ingredients": {
+              "type": "SharedSlice"
+            },
             "quote": {
               "type": "SharedSlice"
             },

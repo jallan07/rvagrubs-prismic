@@ -3,7 +3,7 @@ import * as prismic from "@prismicio/client";
 import { createClient } from "@/prismicio";
 import { Layout } from "@/components/Layout";
 import { Bounded } from "@/components/Bounded";
-import { Article } from "@/components/Article";
+import { Recipe } from "@/components/Recipe";
 import { Heading } from "@/components/Heading";
 
 export async function generateMetadata() {
@@ -60,7 +60,7 @@ export default async function Index() {
           </Heading> */}
           {/* <hr className="w-1/5 mx-auto" /> */}
           {recipes.map((recipe) => (
-            <Article key={recipe.id} article={recipe} />
+            <Recipe key={recipe.id} recipe={recipe} />
           ))}
         </ul>
       </Bounded>

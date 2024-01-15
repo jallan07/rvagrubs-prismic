@@ -251,7 +251,11 @@ interface PageDocumentData {
 export type PageDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<PageDocumentData>, "page", Lang>;
 
-type RecipeDocumentDataSlicesSlice = QuoteSlice | ImageSlice | TextSlice;
+type RecipeDocumentDataSlicesSlice =
+  | IngredientsSlice
+  | QuoteSlice
+  | ImageSlice
+  | TextSlice;
 
 /**
  * Content for Recipe documents
@@ -590,6 +594,51 @@ type ImageSliceVariation =
 export type ImageSlice = prismic.SharedSlice<"image", ImageSliceVariation>;
 
 /**
+ * Primary content in *Ingredients → Items*
+ */
+export interface IngredientsSliceDefaultItem {
+  /**
+   * ingredient field in *Ingredients → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: ingredients.items[].ingredient
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  ingredient: prismic.RichTextField;
+}
+
+/**
+ * Default variation for Ingredients Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type IngredientsSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Record<string, never>,
+  Simplify<IngredientsSliceDefaultItem>
+>;
+
+/**
+ * Slice variation for *Ingredients*
+ */
+type IngredientsSliceVariation = IngredientsSliceDefault;
+
+/**
+ * Ingredients Shared Slice
+ *
+ * - **API ID**: `ingredients`
+ * - **Description**: Ingredients
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type IngredientsSlice = prismic.SharedSlice<
+  "ingredients",
+  IngredientsSliceVariation
+>;
+
+/**
  * Primary content in *Quote → Primary*
  */
 export interface QuoteSliceDefaultPrimary {
@@ -828,6 +877,10 @@ declare module "@prismicio/client" {
       ImageSliceDefault,
       ImageSliceWide,
       ImageSliceExtraWideSmallHeight,
+      IngredientsSlice,
+      IngredientsSliceDefaultItem,
+      IngredientsSliceVariation,
+      IngredientsSliceDefault,
       QuoteSlice,
       QuoteSliceDefaultPrimary,
       QuoteSliceVariation,
