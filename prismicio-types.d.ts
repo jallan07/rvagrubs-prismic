@@ -251,6 +251,105 @@ interface PageDocumentData {
 export type PageDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<PageDocumentData>, "page", Lang>;
 
+type RecipeDocumentDataSlicesSlice =
+  | StepsSlice
+  | IngredientsSlice
+  | QuoteSlice
+  | ImageSlice
+  | TextSlice;
+
+/**
+ * Content for Recipe documents
+ */
+interface RecipeDocumentData {
+  /**
+   * Title field in *Recipe*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: Title of the recipe
+   * - **API ID Path**: recipe.title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Publish Date field in *Recipe*
+   *
+   * - **Field Type**: Date
+   * - **Placeholder**: Date the recipe was published
+   * - **API ID Path**: recipe.publish_date
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#date
+   */
+  publish_date: prismic.DateField;
+
+  /**
+   * Featured Image field in *Recipe*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: recipe.featuredImage
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  featuredImage: prismic.ImageField<never>;
+
+  /**
+   * Slice Zone field in *Recipe*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: recipe.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<RecipeDocumentDataSlicesSlice> /**
+   * Meta Description field in *Recipe*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: recipe.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */;
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *Recipe*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: recipe.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  meta_image: prismic.ImageField<never>;
+
+  /**
+   * Meta Title field in *Recipe*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: recipe.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_title: prismic.KeyTextField;
+}
+
+/**
+ * Recipe document from Prismic
+ *
+ * - **API ID**: `recipe`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type RecipeDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<Simplify<RecipeDocumentData>, "recipe", Lang>;
+
 /**
  * Content for Settings documents
  */
@@ -331,6 +430,7 @@ export type AllDocumentTypes =
   | ArticleDocument
   | NavigationDocument
   | PageDocument
+  | RecipeDocument
   | SettingsDocument;
 
 /**
@@ -495,6 +595,51 @@ type ImageSliceVariation =
 export type ImageSlice = prismic.SharedSlice<"image", ImageSliceVariation>;
 
 /**
+ * Primary content in *Ingredients → Items*
+ */
+export interface IngredientsSliceDefaultItem {
+  /**
+   * ingredient field in *Ingredients → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: ingredients.items[].ingredient
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  ingredient: prismic.RichTextField;
+}
+
+/**
+ * Default variation for Ingredients Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type IngredientsSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Record<string, never>,
+  Simplify<IngredientsSliceDefaultItem>
+>;
+
+/**
+ * Slice variation for *Ingredients*
+ */
+type IngredientsSliceVariation = IngredientsSliceDefault;
+
+/**
+ * Ingredients Shared Slice
+ *
+ * - **API ID**: `ingredients`
+ * - **Description**: Ingredients
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type IngredientsSlice = prismic.SharedSlice<
+  "ingredients",
+  IngredientsSliceVariation
+>;
+
+/**
  * Primary content in *Quote → Primary*
  */
 export interface QuoteSliceDefaultPrimary {
@@ -571,6 +716,7 @@ export interface RestaurantDetailsSliceDefaultPrimary {
     | "Fusion"
     | "Breakfast"
     | "Burgers"
+    | "Jewish"
   >;
 
   /**
@@ -655,6 +801,48 @@ export type RestaurantDetailsSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Primary content in *Steps → Items*
+ */
+export interface StepsSliceDefaultItem {
+  /**
+   * steps field in *Steps → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: steps.items[].steps
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  steps: prismic.RichTextField;
+}
+
+/**
+ * Default variation for Steps Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type StepsSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Record<string, never>,
+  Simplify<StepsSliceDefaultItem>
+>;
+
+/**
+ * Slice variation for *Steps*
+ */
+type StepsSliceVariation = StepsSliceDefault;
+
+/**
+ * Steps Shared Slice
+ *
+ * - **API ID**: `steps`
+ * - **Description**: Steps
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type StepsSlice = prismic.SharedSlice<"steps", StepsSliceVariation>;
+
+/**
  * Primary content in *Text → Primary*
  */
 export interface TextSliceDefaultPrimary {
@@ -715,6 +903,9 @@ declare module "@prismicio/client" {
       PageDocument,
       PageDocumentData,
       PageDocumentDataSlicesSlice,
+      RecipeDocument,
+      RecipeDocumentData,
+      RecipeDocumentDataSlicesSlice,
       SettingsDocument,
       SettingsDocumentData,
       AllDocumentTypes,
@@ -729,6 +920,10 @@ declare module "@prismicio/client" {
       ImageSliceDefault,
       ImageSliceWide,
       ImageSliceExtraWideSmallHeight,
+      IngredientsSlice,
+      IngredientsSliceDefaultItem,
+      IngredientsSliceVariation,
+      IngredientsSliceDefault,
       QuoteSlice,
       QuoteSliceDefaultPrimary,
       QuoteSliceVariation,
@@ -737,6 +932,10 @@ declare module "@prismicio/client" {
       RestaurantDetailsSliceDefaultPrimary,
       RestaurantDetailsSliceVariation,
       RestaurantDetailsSliceDefault,
+      StepsSlice,
+      StepsSliceDefaultItem,
+      StepsSliceVariation,
+      StepsSliceDefault,
       TextSlice,
       TextSliceDefaultPrimary,
       TextSliceVariation,

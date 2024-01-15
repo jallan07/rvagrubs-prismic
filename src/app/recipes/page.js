@@ -1,9 +1,10 @@
 import * as prismic from "@prismicio/client";
+
 import { createClient } from "@/prismicio";
 import { Layout } from "@/components/Layout";
 import { Bounded } from "@/components/Bounded";
+import { Recipe } from "@/components/Recipe";
 import { Heading } from "@/components/Heading";
-import { Article } from "@/components/Article";
 
 export async function generateMetadata() {
   const client = createClient();
@@ -14,17 +15,22 @@ export async function generateMetadata() {
   };
 }
 
-export default async function Page({ params }) {
+export default async function Index() {
   const client = createClient();
 
-  const tag = decodeURIComponent(params.tag);
-  const articlesData = await client.getByTag(tag, {
+  //   const features = await client.getByTag("featured", {
+  //     orderings: [
+  //       { field: "my.article.publishDate", direction: "desc" },
+  //       { field: "document.first_publication_date", direction: "desc" },
+  //     ],
+  //   });
+
+  const recipes = await client.getAllByType("recipe", {
     orderings: [
-      { field: "my.article.publishDate", direction: "desc" },
+      { field: "my.recipe.publishDate", direction: "desc" },
       { field: "document.first_publication_date", direction: "desc" },
     ],
   });
-  const articles = articlesData.results || [];
 
   const navigation = await client.getSingle("navigation");
   const settings = await client.getSingle("settings");
@@ -32,18 +38,28 @@ export default async function Page({ params }) {
   return (
     <Layout
       withHeaderDivider={false}
-      withProfile={false}
       navigation={navigation}
       settings={settings}
+      withProfile={false}
     >
       <Bounded size="widest">
         <ul className="grid grid-cols-1 gap-16">
-          <Heading as="h2" className="text-center">
-            {`#${tag}`}
+          {/* <Heading as="h2" className="text-center">
+            Featured Recipes
           </Heading>
           <hr className="w-1/5 mx-auto" />
-          {articles.map((article) => (
-            <Article key={article.id} article={article} />
+          {features &&
+            features.results.map((feature) => (
+              <Article key={feature.id} article={feature} />
+            ))} */}
+
+          {/* <hr />
+          <Heading as="h2" className="text-center">
+            All Recipes
+          </Heading> */}
+          {/* <hr className="w-1/5 mx-auto" /> */}
+          {recipes.map((recipe) => (
+            <Recipe key={recipe.id} recipe={recipe} />
           ))}
         </ul>
       </Bounded>
