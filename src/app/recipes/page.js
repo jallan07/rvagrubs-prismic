@@ -53,11 +53,11 @@ export default async function Index() {
               <Article key={feature.id} article={feature} />
             ))} */}
 
-          {/* <hr />
+          {/* <hr /> */}
           <Heading as="h2" className="text-center">
             All Recipes
-          </Heading> */}
-          {/* <hr className="w-1/5 mx-auto" /> */}
+          </Heading>
+          <hr className="w-1/5 mx-auto" />
           {recipes.map((recipe) => (
             <Recipe key={recipe.id} recipe={recipe} />
           ))}
