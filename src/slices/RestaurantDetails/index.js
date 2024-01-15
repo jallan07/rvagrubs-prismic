@@ -7,7 +7,6 @@
 import { Bounded } from "@/components/Bounded";
 
 const RestaurantDetails = ({ slice }) => {
-  console.log({ slice });
   return (
     <Bounded as="section">
       <div className="font-serif leading-relaxed md:text-xl md:leading-relaxed my-5 border-[1.3px] py-3 px-4 rounded-xl">
