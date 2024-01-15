@@ -9,6 +9,7 @@ import { Layout } from "@/components/Layout";
 import { Bounded } from "@/components/Bounded";
 import { Heading } from "@/components/Heading";
 import { HorizontalDivider } from "@/components/HorizontalDivider";
+import { HiChevronDoubleDown } from "react-icons/hi2";
 
 const dateFormatter = new Intl.DateTimeFormat("en-US", {
   month: "short",
@@ -60,10 +61,12 @@ export async function generateMetadata({ params }) {
 
 export default async function Page({ params }) {
   const client = createClient();
+  console.log("🚀 ~ Page ~ params:", params);
 
   const recipe = await client
     .getByUID("recipe", params.uid)
     .catch(() => notFound());
+  console.log("🚀 ~ Page ~ recipe:", recipe);
   const latestRecipes = await client.getAllByType("recipe", {
     limit: 3,
     orderings: [
@@ -95,14 +98,22 @@ export default async function Page({ params }) {
           &larr; Back to Recipes
         </Link>
       </Bounded>
-      <recipe>
+      <article>
         <Bounded className="pb-0">
           <h1 className="mb-3 text-3xl font-semibold tracking-tighter text-slate-800 md:text-4xl">
             <PrismicText field={recipe.data.title} />
           </h1>
-          <p className="font-serif italic tracking-tighter text-slate-500">
-            {dateFormatter.format(date)}
-          </p>
+          <div className="flex flex-row space-x-6">
+            <p className="font-serif italic tracking-tighter text-slate-500">
+              {dateFormatter.format(date)}
+            </p>
+            <p>|</p>
+            <a href="#ingredients">
+              <button className="font-serif italic tracking-tighter text-slate-500 flex flex-row align-middle my-auto space-x-2">
+                Jump to recipe <HiChevronDoubleDown className="my-auto ml-1" />
+              </button>
+            </a>
+          </div>
 
           <p className="italic text-sm mt-3 text-slate-500">
             {tags &&
@@ -116,7 +127,7 @@ export default async function Page({ params }) {
           </p>
         </Bounded>
         <SliceZone slices={recipe.data.slices} components={components} />
-      </recipe>
+      </article>
       {latestRecipes.length > 0 && (
         <Bounded>
           <div className="grid grid-cols-1 justify-items-center gap-16 md:gap-24">

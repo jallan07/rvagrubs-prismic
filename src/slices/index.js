@@ -8,5 +8,6 @@ export const components = {
   ingredients: dynamic(() => import("./Ingredients")),
   quote: dynamic(() => import("./Quote")),
   restaurant_details: dynamic(() => import("./RestaurantDetails")),
+  steps: dynamic(() => import("./Steps")),
   text: dynamic(() => import("./Text")),
 };

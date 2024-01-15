@@ -252,6 +252,7 @@ export type PageDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<PageDocumentData>, "page", Lang>;
 
 type RecipeDocumentDataSlicesSlice =
+  | StepsSlice
   | IngredientsSlice
   | QuoteSlice
   | ImageSlice
@@ -800,6 +801,48 @@ export type RestaurantDetailsSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Primary content in *Steps → Items*
+ */
+export interface StepsSliceDefaultItem {
+  /**
+   * steps field in *Steps → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: steps.items[].steps
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  steps: prismic.RichTextField;
+}
+
+/**
+ * Default variation for Steps Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type StepsSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Record<string, never>,
+  Simplify<StepsSliceDefaultItem>
+>;
+
+/**
+ * Slice variation for *Steps*
+ */
+type StepsSliceVariation = StepsSliceDefault;
+
+/**
+ * Steps Shared Slice
+ *
+ * - **API ID**: `steps`
+ * - **Description**: Steps
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type StepsSlice = prismic.SharedSlice<"steps", StepsSliceVariation>;
+
+/**
  * Primary content in *Text → Primary*
  */
 export interface TextSliceDefaultPrimary {
@@ -889,6 +932,10 @@ declare module "@prismicio/client" {
       RestaurantDetailsSliceDefaultPrimary,
       RestaurantDetailsSliceVariation,
       RestaurantDetailsSliceDefault,
+      StepsSlice,
+      StepsSliceDefaultItem,
+      StepsSliceVariation,
+      StepsSliceDefault,
       TextSlice,
       TextSliceDefaultPrimary,
       TextSliceVariation,
