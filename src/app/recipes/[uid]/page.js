@@ -61,12 +61,10 @@ export async function generateMetadata({ params }) {
 
 export default async function Page({ params }) {
   const client = createClient();
-  console.log("🚀 ~ Page ~ params:", params);
 
   const recipe = await client
     .getByUID("recipe", params.uid)
     .catch(() => notFound());
-  console.log("🚀 ~ Page ~ recipe:", recipe);
   const latestRecipes = await client.getAllByType("recipe", {
     limit: 3,
     orderings: [

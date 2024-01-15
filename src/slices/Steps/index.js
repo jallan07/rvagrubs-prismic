@@ -7,7 +7,6 @@ import { Heading } from "@/components/Heading";
  * @param {StepsProps}
  */
 const Steps = ({ slice }) => {
-  console.log("🚀 ~ Steps ~ slice:", slice);
   const steps = slice.items
     .map((item) => {
       const nestedField = item.steps[0];
@@ -16,7 +15,6 @@ const Steps = ({ slice }) => {
         : null;
     })
     .filter((text) => text !== null);
-  console.log("🚀 ~ Steps ~ steps:", steps);
 
   return (
     <Bounded as="section">
@@ -26,26 +24,18 @@ const Steps = ({ slice }) => {
             Steps
           </Heading>
         )}
-        {steps &&
-          steps.length > 0 &&
-          steps.map((item, i) => (
-            <div className="flex items-center mb-4" key={`${item}-${i}`}>
-              <input
-                id={`checkbox-${item}`}
-                type="checkbox"
-                value=""
-                className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-                key={`${item}-${i}`}
-              />
-              <label
-                htmlFor={`checkbox-${item}`}
-                className="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-                key={`${item}-${i}`}
+        {steps && steps.length > 0 && (
+          <ol className="mx-6">
+            {steps.map((item, i) => (
+              <li
+                className="list-decimal list-outside my-3"
+                key={`${i}-${item}`}
               >
-                {i + 1} - {item}
-              </label>
-            </div>
-          ))}
+                {item}
+              </li>
+            ))}
+          </ol>
+        )}
       </div>
     </Bounded>
   );

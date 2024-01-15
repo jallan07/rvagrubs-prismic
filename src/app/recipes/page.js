@@ -31,7 +31,6 @@ export default async function Index() {
       { field: "document.first_publication_date", direction: "desc" },
     ],
   });
-  console.log("🚀 ~ Index ~ recipes:", recipes);
 
   const navigation = await client.getSingle("navigation");
   const settings = await client.getSingle("settings");

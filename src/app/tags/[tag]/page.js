@@ -8,7 +8,6 @@ import { Article } from "@/components/Article";
 export async function generateMetadata() {
   const client = createClient();
   const settings = await client.getSingle("settings");
-  console.log("🚀 ~ file: page.js:42 ~ generateMetadata ~ settings:", settings);
 
   return {
     title: prismic.asText(settings.data.name),

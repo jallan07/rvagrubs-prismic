@@ -18,8 +18,6 @@ export function Article({ article }) {
   );
   const excerpt = getExcerpt(article.data.slices);
 
-  console.log({ article });
-
   return (
     <li className="grid grid-cols-1 items-start gap-6 md:grid-cols-3 md:gap-8">
       <PrismicNextLink document={article} tabIndex="-1">
