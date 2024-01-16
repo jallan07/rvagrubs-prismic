@@ -81,12 +81,7 @@ export default async function Page({ params }) {
   const { tags } = article;
 
   return (
-    <Layout
-      navigation={navigation}
-      withHeaderDivider={false}
-      withProfile={false}
-      settings={settings}
-    >
+    <Layout navigation={navigation} settings={settings}>
       <Bounded>
         <Link href="/" className="font-semibold tracking-tight text-slate-400">
           &larr; Back to Reviews

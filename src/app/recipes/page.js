@@ -36,12 +36,7 @@ export default async function Index() {
   const settings = await client.getSingle("settings");
 
   return (
-    <Layout
-      withHeaderDivider={false}
-      navigation={navigation}
-      settings={settings}
-      withProfile={false}
-    >
+    <Layout navigation={navigation} settings={settings}>
       <Bounded size="widest">
         <ul className="grid grid-cols-1 gap-16">
           {/* <Heading as="h2" className="text-center">
