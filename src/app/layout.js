@@ -1,7 +1,6 @@
 import "../styles/globals.css";
-
+import { Analytics } from "@vercel/analytics/react";
 import { Inter, Libre_Baskerville } from "next/font/google";
-
 import { PrismicPreview } from "@prismicio/next";
 import { repositoryName } from "@/prismicio";
 
@@ -52,6 +51,7 @@ export default function RootLayout({ children }) {
             </div>
           )} */}
           {children}
+          <Analytics />
           <PrismicPreview repositoryName={repositoryName} />
         </main>
       </body>
