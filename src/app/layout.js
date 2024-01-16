@@ -23,7 +23,7 @@ export default function RootLayout({ children }) {
       lang="en"
       className={`${inter.className} ${libre_baskerville.className}`}
     >
-      <body className="overflow-x-hidden antialiased">
+      <body className="overflow-x-hidden antialiased mt-24">
         <main>
           {/* {process.env.NODE_ENV === "development" && (
             <div

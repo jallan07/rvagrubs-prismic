@@ -34,12 +34,7 @@ export default async function Page({ params }) {
   const recipes = results.filter((item) => item.type === "recipe");
 
   return (
-    <Layout
-      withHeaderDivider={false}
-      withProfile={false}
-      navigation={navigation}
-      settings={settings}
-    >
+    <Layout navigation={navigation} settings={settings}>
       <Bounded size="widest">
         <ul className="grid grid-cols-1 gap-16">
           <Heading as="h2" className="text-center">

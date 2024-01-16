@@ -82,12 +82,7 @@ export default async function Page({ params }) {
   const { tags } = recipe;
 
   return (
-    <Layout
-      navigation={navigation}
-      withHeaderDivider={false}
-      withProfile={false}
-      settings={settings}
-    >
+    <Layout navigation={navigation} settings={settings}>
       <Bounded>
         <Link
           href="/recipes"

@@ -1,3 +1,4 @@
+"use client";
 import Link from "next/link";
 import * as prismic from "@prismicio/client";
 import { PrismicText } from "@prismicio/react";
@@ -6,6 +7,7 @@ import { PrismicNextLink, PrismicNextImage } from "@prismicio/next";
 import { Bounded } from "./Bounded";
 import { Heading } from "./Heading";
 import { HorizontalDivider } from "./HorizontalDivider";
+import { useState } from "react";
 
 const Profile = ({ name, description, profilePicture }) => {
   return (
@@ -45,46 +47,92 @@ const Profile = ({ name, description, profilePicture }) => {
   );
 };
 
-const NavItem = ({ children }) => {
+const NavItem = ({ children, mobile }) => {
   return (
-    <li className="font-semibold tracking-tight text-slate-800">{children}</li>
+    <li
+      className={`${
+        mobile && "my-3"
+      } font-semibold tracking-tight text-slate-800 hover:text-rose-800`}
+    >
+      {children}
+    </li>
   );
 };
 
-export const Header = ({
-  withDivider = true,
-  withProfile = true,
-  navigation,
-  settings,
-}) => {
+export const Header = ({ navigation, settings }) => {
+  const [isHidden, setIsHidden] = useState(true);
+
   return (
     <Bounded as="header">
-      <div className="grid grid-cols-1 justify-items-center gap-20">
-        <nav>
-          <ul className="flex flex-wrap justify-center gap-10">
-            <NavItem>
-              <Link href="/">
-                <PrismicText field={navigation.data.homepageLabel} />
-              </Link>
-            </NavItem>
-            {navigation.data?.links.map((item) => (
-              <NavItem key={prismic.asText(item.label)}>
-                <PrismicNextLink field={item.link}>
-                  <PrismicText field={item.label} />
-                </PrismicNextLink>
+      <nav className="bg-white border-gray-200 dark:bg-gray-900 mb-16 fixed w-full z-20 top-0 start-0 border-b">
+        <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+          <a
+            href="/"
+            className="flex items-center space-x-3 rtl:space-x-reverse"
+          >
+            <img
+              src={settings.data.profilePicture.url}
+              className="h-8"
+              alt="Flowbite Logo"
+            />
+            <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
+              {settings.data.name[0].text}
+            </span>
+          </a>
+          <button
+            data-collapse-toggle="navbar-default"
+            type="button"
+            className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+            aria-controls="navbar-default"
+            aria-expanded="false"
+            onClick={() => setIsHidden(!isHidden)}
+          >
+            <span className="sr-only">Open main menu</span>
+            <svg
+              className="w-5 h-5"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 17 14"
+            >
+              <path
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M1 1h15M1 7h15M1 13h15"
+              />
+            </svg>
+          </button>
+          <div
+            className="w-full md:block md:w-auto"
+            id="navbar-default"
+            hidden={isHidden}
+          >
+            <ul
+              className={`${
+                isHidden === true ? "flex flex-wrap" : "mt-4"
+              } justify-center gap-10`}
+            >
+              <NavItem>
+                <Link href="/">
+                  <PrismicText field={navigation.data.homepageLabel} />
+                </Link>
               </NavItem>
-            ))}
-          </ul>
-        </nav>
-        {withProfile && (
-          <Profile
-            name={settings.data.name}
-            description={settings.data.description}
-            profilePicture={settings.data.profilePicture}
-          />
-        )}
-        {withDivider && <HorizontalDivider />}
-      </div>
+              {navigation.data?.links.map((item) => (
+                <NavItem
+                  mobile={isHidden === false}
+                  key={prismic.asText(item.label)}
+                >
+                  <PrismicNextLink field={item.link}>
+                    <PrismicText field={item.label} />
+                  </PrismicNextLink>
+                </NavItem>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </nav>
     </Bounded>
   );
 };
