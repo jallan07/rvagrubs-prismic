@@ -717,6 +717,9 @@ export interface RestaurantDetailsSliceDefaultPrimary {
     | "Breakfast"
     | "Burgers"
     | "Jewish"
+    | "Sushi"
+    | "Poke"
+    | "Asian"
   >;
 
   /**

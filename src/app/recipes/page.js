@@ -18,13 +18,6 @@ export async function generateMetadata() {
 export default async function Index() {
   const client = createClient();
 
-  //   const features = await client.getByTag("featured", {
-  //     orderings: [
-  //       { field: "my.article.publishDate", direction: "desc" },
-  //       { field: "document.first_publication_date", direction: "desc" },
-  //     ],
-  //   });
-
   const recipes = await client.getAllByType("recipe", {
     orderings: [
       { field: "my.recipe.publishDate", direction: "desc" },
@@ -39,16 +32,6 @@ export default async function Index() {
     <Layout navigation={navigation} settings={settings}>
       <Bounded size="widest">
         <ul className="grid grid-cols-1 gap-16">
-          {/* <Heading as="h2" className="text-center">
-            Featured Recipes
-          </Heading>
-          <hr className="w-1/5 mx-auto" />
-          {features &&
-            features.results.map((feature) => (
-              <Article key={feature.id} article={feature} />
-            ))} */}
-
-          {/* <hr /> */}
           <Heading as="h2" className="text-center">
             All Recipes
           </Heading>
