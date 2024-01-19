@@ -720,6 +720,7 @@ export interface RestaurantDetailsSliceDefaultPrimary {
     | "Sushi"
     | "Poke"
     | "Asian"
+    | "Vietnamese"
   >;
 
   /**
