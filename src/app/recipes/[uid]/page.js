@@ -10,6 +10,7 @@ import { Bounded } from "@/components/Bounded";
 import { Heading } from "@/components/Heading";
 import { HorizontalDivider } from "@/components/HorizontalDivider";
 import { HiChevronDoubleDown } from "react-icons/hi2";
+import { withPageAuthRequired } from "@auth0/nextjs-auth0";
 
 const dateFormatter = new Intl.DateTimeFormat("en-US", {
   month: "short",
@@ -59,7 +60,7 @@ export async function generateMetadata({ params }) {
   };
 }
 
-export default async function Page({ params }) {
+export const Page = withPageAuthRequired(async ({ params }) => {
   const client = createClient();
 
   const recipe = await client
@@ -140,7 +141,7 @@ export default async function Page({ params }) {
       )}
     </Layout>
   );
-}
+});
 
 export async function generateStaticParams() {
   const client = createClient();
@@ -151,3 +152,5 @@ export async function generateStaticParams() {
     return { uid: recipe.uid };
   });
 }
+
+export default Page;
