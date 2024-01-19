@@ -5,6 +5,7 @@ import { Layout } from "@/components/Layout";
 import { Bounded } from "@/components/Bounded";
 import { Recipe } from "@/components/Recipe";
 import { Heading } from "@/components/Heading";
+import { withPageAuthRequired } from "@auth0/nextjs-auth0";
 
 export async function generateMetadata() {
   const client = createClient();
@@ -15,7 +16,7 @@ export async function generateMetadata() {
   };
 }
 
-export default async function Index() {
+const Recipes = withPageAuthRequired(async () => {
   const client = createClient();
 
   const recipes = await client.getAllByType("recipe", {
@@ -43,4 +44,6 @@ export default async function Index() {
       </Bounded>
     </Layout>
   );
-}
+});
+
+export default Recipes;

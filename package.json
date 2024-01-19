@@ -15,11 +15,13 @@
     "gen": "prismic-ts-codegen"
   },
   "dependencies": {
+    "@auth0/nextjs-auth0": "^3.5.0",
     "@prismicio/client": "^7.3.1",
     "@prismicio/next": "^1.5.0",
     "@prismicio/react": "^2.7.3",
     "@vercel/analytics": "^1.1.1",
     "clsx": "^2.0.0",
+    "dotenv": "^16.3.2",
     "next": "^14.0.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

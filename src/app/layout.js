@@ -3,6 +3,7 @@ import { Analytics } from "@vercel/analytics/react";
 import { Inter, Libre_Baskerville } from "next/font/google";
 import { PrismicPreview } from "@prismicio/next";
 import { repositoryName } from "@/prismicio";
+import { UserProvider } from "@auth0/nextjs-auth0/client";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -23,38 +24,15 @@ export default function RootLayout({ children }) {
       lang="en"
       className={`${inter.className} ${libre_baskerville.className}`}
     >
-      <body className="overflow-x-hidden antialiased mt-24">
-        <main>
-          {/* {process.env.NODE_ENV === "development" && (
-            <div
-              style={{
-                background: "#5163ba",
-                padding: "1rem",
-                textAlign: "center",
-                fontSize: "0.85rem",
-                color: "#fff",
-              }}
-            >
-              <p>
-                <strong>👋 Welcome to your new website!</strong> To customize
-                the code and content of this site,{" "}
-                <a
-                  href="https://github.com/prismicio-community/nextjs-starter-prismic-blog/tree/master/docs"
-                  target="_blank"
-                  rel="noreferrer"
-                  style={{ textDecoration: "underline" }}
-                >
-                  see the documentation
-                </a>
-                . Remove this bar in <code>app/layout.js</code>.
-              </p>
-            </div>
-          )} */}
-          {children}
-          <Analytics />
-          <PrismicPreview repositoryName={repositoryName} />
-        </main>
-      </body>
+      <UserProvider>
+        <body className="overflow-x-hidden antialiased mt-24">
+          <main>
+            {children}
+            <Analytics />
+            <PrismicPreview repositoryName={repositoryName} />
+          </main>
+        </body>
+      </UserProvider>
     </html>
   );
 }
