@@ -20,11 +20,11 @@ const libre_baskerville = Libre_Baskerville({
 
 export default function RootLayout({ children }) {
   return (
-    <html
-      lang="en"
-      className={`${inter.className} ${libre_baskerville.className}`}
-    >
-      <UserProvider>
+    <UserProvider>
+      <html
+        lang="en"
+        className={`${inter.className} ${libre_baskerville.className}`}
+      >
         <body className="overflow-x-hidden antialiased mt-24">
           <main>
             {children}
@@ -32,7 +32,7 @@ export default function RootLayout({ children }) {
             <PrismicPreview repositoryName={repositoryName} />
           </main>
         </body>
-      </UserProvider>
-    </html>
+      </html>
+    </UserProvider>
   );
 }
